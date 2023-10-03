@@ -1,11 +1,32 @@
 #include <iostream>
 
+/**
+ * namespaceの標準がstd
+*/
+namespace first {
+    int x = 1;
+}
+namespace second {
+    int x = 2;
+}
+
 int main()
 {
-    const double PI = 3.14159;
-    const int LIGHT_SPEED = 299792458;
-    const int WIDTH = 1920;
-    const int HEIGHT = 1080;
+    // int x = 0;
+    // std::cout << second::x;
+
+    // using namespace first;
+    // std::cout << x;
+
+    // using namespace std;
+    // string name = "Pro";
+    // cout << "Hello " << name;
+
+    using std::cout;
+    using std::string;
+
+    std::string name = "Bro";
+    cout << "Hello " << name;
 
     return 0;
 }
