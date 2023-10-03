@@ -1,32 +1,20 @@
 #include <iostream>
+#include <vector>
 
-/**
- * namespaceの標準がstd
-*/
-namespace first {
-    int x = 1;
-}
-namespace second {
-    int x = 2;
-}
+// typedef std::vector<std::pair<std::string, int>> pairlist_t;
+// typedef std::string text_t;
+// typedef int number_t;
+using text_t = std::string;
+using number_t = int;
 
 int main()
 {
-    // int x = 0;
-    // std::cout << second::x;
+   // pairlist_t pairlist;
+   text_t firstName = "Bro";
+   number_t age = 21;
 
-    // using namespace first;
-    // std::cout << x;
-
-    // using namespace std;
-    // string name = "Pro";
-    // cout << "Hello " << name;
-
-    using std::cout;
-    using std::string;
-
-    std::string name = "Bro";
-    cout << "Hello " << name;
+   std::cout << firstName;
+   std::cout << age;
 
     return 0;
 }
