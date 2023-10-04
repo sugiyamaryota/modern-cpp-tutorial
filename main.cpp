@@ -3,10 +3,18 @@
 
 int main()
 {
-    int students = 20;
-    // students *= 3;
-    int remainder = students % 2;
-    std::cout << remainder;
+    // Implict
+    /**
+        double x = (int)3.14;
+        std::cout << x;
+    */
+
+    // Explict
+    // char x = 100;
+    int correct = 8;
+    int questions = 10;
+    double score = correct/(double)questions*100;
+    std::cout << score << "%";
 
     return 0;
 }
