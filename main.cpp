@@ -1,24 +1,43 @@
 #include <iostream>
+#include <cmath>
 
-// cout << ( insertion operator )
-// cin >> ( extraction operator )
+/**
+ * 以下のリファレンスがある
+ * https://cplusplus.com/reference/cmath/
+*/
 
 int main()
 {
 
-    std::string name;
-    int age;
-    std::cout << "what's your name?:";
-    // std::cin >> name;
+    // double x = 3;
+    // double y = 4;
+    // double z;
 
-    std::cout << "what's your age?:";
-    std::cin >> age;
+    // z = std::max(x,y);
+    // z = std::min(x,y);
+    // z = pow(2,4);
+    // z = sqrt(9);
 
-    std::cout << "what's your full name?:";
-    std::getline(std::cin >> std::ws, name); //spaceがある場合をフォロー・getline関数の前にcinを使用すると挙動がおかしくなるので、wsで抽出する
+    // std::cout << z;
 
-    std::cout << "Hello " << name << '\n';
-    std::cout << "You are " << age << " years old.";
+    double a;
+    double b;
+    double c;
+
+    std::cout << "Enter side A: ";
+    std::cin >> a;
+
+    std::cout << "Enter side B: ";
+    std::cin >> b;
+
+    /*
+    a = pow(a, 2);
+    b = pow(b, 2);
+    c= sqrt(a+b);
+    */
+    c= sqrt(pow(a, 2)+pow(b, 2));
+
+    std::cout << "side C: " << c;
 
     return 0;
 }
