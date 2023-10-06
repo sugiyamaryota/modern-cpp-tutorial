@@ -3,23 +3,35 @@
 
 int main()
 {
-    int age;
+    // int month;
+    // std::cout << "Enter the month（1-12）:";
+    // std::cin >> month;
 
-    std::cout << "Enter your age: ";
-    std::cin >> age;
+    // switch (month) {
+    // case 1:
+    //     std::cout << "It is January";
+    //     break;
+    // case 2:
+    //     std::cout << "It is Febrary";
+    //     break;
+    // case 3:
+    //     std::cout << "It is March";
+    //     break;
+    // default:
+    //     std::cout << "Please enter in only numbers(1-12)";
+    // }
 
-    if(age >= 100) {
-        std::cout << "You are too old to enter this site!";
-    }
-    else if(age >= 18){
-        std::cout << "welcome to the site!";
-    }
-    else if(age < 0) {
-        std::cout << "You haven't been born yet!";
-    }
-    else {
-        std::cout << "You are not old enough to enter!";
-    }
+    char grade;
 
+    std::cout << "What letter grade?: ";
+    std::cin >> grade;
+
+    switch(grade) {
+        case 'A':
+            std::cout << "You did great!";
+            break;
+        default:
+            std::cout << "Please only enter in a letter grade(A-F)";
+    }
     return 0;
 }
