@@ -3,16 +3,20 @@
 
 int main()
 {
-    int temp;
+    double temp;
+    char unit;
+    std::cout << "*** Temperature conversion ****\n";
+    std::cout << "F = Fahrenheit\n";
+    std::cout << "C = Celsius\n";
+    std::cout << "What unit would you like to convert to: ";
+    std::cin >> unit;
 
-    std::cout << "Enter the temperature: ";
-    std::cin >> temp;
+    if(unit == 'F' || unit == 'f'){
+        std::cout << "Enter the temperature in Celsius: ";
+        std::cin >> temp;
 
-    if(temp > 0 && temp < 30){
-        std::cout << "The temperature is good!";
-    }
-    else {
-        std::cout << "The temperature is bad!";
+        temp = (1.8 * temp) +32.0;
+        std::cout << "Temperature is: " << temp << "F\n";
     }
 
     return 0;
