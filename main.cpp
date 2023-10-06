@@ -3,35 +3,45 @@
 
 int main()
 {
-    // int month;
-    // std::cout << "Enter the month（1-12）:";
-    // std::cin >> month;
+    char op;
+    double num1;
+    double num2;
+    double result;
 
-    // switch (month) {
-    // case 1:
-    //     std::cout << "It is January";
-    //     break;
-    // case 2:
-    //     std::cout << "It is Febrary";
-    //     break;
-    // case 3:
-    //     std::cout << "It is March";
-    //     break;
-    // default:
-    //     std::cout << "Please enter in only numbers(1-12)";
-    // }
+    std::cout << "****************************** CALCULATOR *********************************\n";
 
-    char grade;
+    std::cout << "Enter either ( + - * /): ";
+    std::cin >> op;
 
-    std::cout << "What letter grade?: ";
-    std::cin >> grade;
+    std::cout << "Enter #1: ";
+    std::cin >> num1;
 
-    switch(grade) {
-        case 'A':
-            std::cout << "You did great!";
+    std::cout << "Enter #2: ";
+    std::cin >> num2;
+
+    switch(op) {
+        case '+':
+            result = num1 + num2;
+            std::cout << "result:" << result << '\n';
+            break;
+        case '-':
+            result = num1 - num2;
+            std::cout << "result:" << result << '\n';
+            break;
+        case '*':
+            result = num1 * num2;
+            std::cout << "result:" << result << '\n';
+            break;
+        case '/':
+            result = num1 / num2;
+            std::cout << "result:" << result << '\n';
             break;
         default:
-            std::cout << "Please only enter in a letter grade(A-F)";
+            std::cout << "That wasn't a valid response\n";
+            break;
     }
+
+    std::cout << "***************************************************************\n";
+
     return 0;
 }
