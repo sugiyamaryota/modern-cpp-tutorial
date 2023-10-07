@@ -2,8 +2,11 @@
 
 int main()
 {
-    for(int i = 1; i<=5; i++){
-        std::cout << "HAPPY NEW YEAR! \n";
+    for(int i = 1; i<=20; i++){
+        if(i ==13){
+            continue;
+        }
+        std::cout << i << '\n';
     }
 
 
