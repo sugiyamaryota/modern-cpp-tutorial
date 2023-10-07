@@ -2,14 +2,10 @@
 
 int main()
 {
-    int number;
+    for(int i = 1; i<=5; i++){
+        std::cout << "HAPPY NEW YEAR! \n";
+    }
 
-    do{
-        std::cout << "Enter a positive #: ";
-        std::cin >> number;
-    }while(number < 0);
-
-    std::cout << "The # is: " << number;
 
     return 0;
 }
