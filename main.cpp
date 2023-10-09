@@ -1,18 +1,22 @@
 #include <iostream>
 
-std::string concatStrings(std::string string1,std::string string2);
+void bakePizza();
+void bakePizza(std::string topping1);
+void bakePizza(std::string topping1,std::string topping2);
 
 int main()
 {
-
-    std::string firstName = "Bro";
-    std::string lastName = "Code";
-    std::string fullName = concatStrings(firstName, lastName);
-    std::cout << "Hello " << fullName << "\n";
+    bakePizza("pepperoni", "mushurooms");
 
     return 0;
 }
 
-std::string concatStrings(std::string string1,std::string string2){
-    return string1 + " " + string2;
+void bakePizza(){
+    std::cout << "Here is your pizza!\n";
+}
+void bakePizza(std::string topping1){
+    std::cout << "Here is your " << topping1 << "pizza!" << "\n";
+}
+void bakePizza(std::string topping1, std::string topping2){
+    std::cout << "Here is your " << topping1 << " and " << topping2 << "pizza!\n";
 }
