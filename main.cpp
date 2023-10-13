@@ -4,13 +4,12 @@ int main()
 {
 
     // std::string students[] = {"Spongebob","Patrick","Squidward"};
-    // for(int i = 0; i < sizeof(students)/sizeof(std::string); i++){
-    //     std::cout << students[i] << "\n";
+    // for(std::string student : students){
+    //     std::cout << student << "\n";
     // }
-
-    char grades[] = {'A','B','C'};
-    for(int i = 0; i < sizeof(grades)/sizeof(char); i++){
-        std::cout << grades[i] << "\n";
+    int grades[] = {65,72,81,93};
+    for(int grade : grades){
+        std::cout << grade << "\n";
     }
 
     return 0;
