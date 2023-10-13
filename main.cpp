@@ -2,14 +2,16 @@
 
 int main()
 {
-    std::string name = "Bro Code ";
-    double gpa = 2.5;
-    char grade = 'F';
-    bool student = true;
-    char grades[] = {'A','B','C','D','F'};
-    std::string students[] = {"Spongebob","Patrick","Squidward"};
 
-    std::cout << sizeof(students)/sizeof(std::string) << " elements\n";
+    // std::string students[] = {"Spongebob","Patrick","Squidward"};
+    // for(int i = 0; i < sizeof(students)/sizeof(std::string); i++){
+    //     std::cout << students[i] << "\n";
+    // }
+
+    char grades[] = {'A','B','C'};
+    for(int i = 0; i < sizeof(grades)/sizeof(char); i++){
+        std::cout << grades[i] << "\n";
+    }
 
     return 0;
 }
