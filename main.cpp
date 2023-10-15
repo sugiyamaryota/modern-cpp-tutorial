@@ -2,15 +2,24 @@
 
 int main()
 {
-    const int SIZE = 99;
-    std::string foods[SIZE];
+    std::string foods[5];
+    int size = sizeof(foods)/sizeof(foods[0]);
+    std::string temp;
 
-    fill(foods, foods + SIZE, "pizza");
-    fill(foods + (SIZE/3), foods + (SIZE/3)*2, "hambuger");
-    fill(foods + (SIZE/3)*2, foods + SIZE, "hotdog");
+    for(int i = 0; i < size; i++){
+        std::cout << "Enter a food you like or 'q' to quit  #" << i + 1 << ":" << '\n';
+        std::getline(std::cin, temp);
+        if(temp == "q"){
+            break;
+        }else {
+            foods[i] = temp;
+        }
+    }
 
-    for(std::string food : foods){
-        std::cout << food << '\n';
+    std::cout << "You like the following food:\n";
+
+    for(int i = 0; !foods[i].empty(); i++){
+        std::cout << foods[i] << '\n';
     }
 
     return 0;
