@@ -1,26 +1,20 @@
 #include <iostream>
 
-void swap(std::string &x, std::string &y);
+void printInfo(const std::string &name,const int &age);
 
 int main()
 {
 
-    std::string x = "Kool-Aid";
-    std::string y = "Water";
-    std::string temp;
+    std::string name = "Bro";
+    int age = 21;
 
-    swap(x,y);
-
-    std::cout << "X: " << x << '\n';
-    std::cout << "Y: " << y << '\n';
+    printInfo(name,age);
 
     return 0;
 }
-void swap(std::string &x, std::string &y){
-    // std::cout << "X: " << x << '\n';
-    // std::cout << "Y: " << y << '\n';
-    std::string temp;
-    temp = x;
-    x = y;
-    y = temp;
+void printInfo(const std::string &name, const int &age){
+    // name = " ";
+    // age = 0;
+    std::cout << name << '\n';
+    std::cout << age << '\n';
 }
