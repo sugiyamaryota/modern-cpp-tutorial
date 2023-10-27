@@ -1,30 +1,29 @@
 #include <iostream>
 
-void walk(int steps);
-int factorial(int num);
+// int max(int x, int y){
+//     return (x > y) ? x : y;
+// }
+// double max(double x, double y){
+//     return (x > y) ? x : y;
+// }
+// char max(char x, char y){
+//     return (x > y) ? x : y;
+// }
+
+// template <typename T, typename U>
+// T max(T x, U y){
+//     return (x > y) ? x : y;
+// }
+
+template <typename T, typename U>
+auto max(T x, U y){
+    return (x > y) ? x : y;
+}
 int main()
 {
 
-    // walk(100);
-    std::cout << factorial(10);
+    std::cout << max(1.1, 2) << '\n';
+    // std::cout << max('1', '2') << '\n';
 
     return 0;
-}
-void walk(int steps){
-    if(steps > 0){
-        std::cout << "You take a step!" << '\n';
-        walk(steps - 1);
-    }
-}
-int factorial(int num){
-    // int result = 1;
-    // for(int i = 1; i<=num; i++){
-    //     result = result * i;
-    // }
-    // return result;
-    if(num > 1){
-        return num * factorial(num - 1);
-    }else{
-        return 1;
-    }
 }
