@@ -1,29 +1,38 @@
 #include <iostream>
 
-// int max(int x, int y){
-//     return (x > y) ? x : y;
-// }
-// double max(double x, double y){
-//     return (x > y) ? x : y;
-// }
-// char max(char x, char y){
-//     return (x > y) ? x : y;
-// }
+struct student{
+    std::string name;
+    double gpa;
+    bool enrolled = true;
+};
 
-// template <typename T, typename U>
-// T max(T x, U y){
-//     return (x > y) ? x : y;
-// }
-
-template <typename T, typename U>
-auto max(T x, U y){
-    return (x > y) ? x : y;
-}
 int main()
 {
 
-    std::cout << max(1.1, 2) << '\n';
-    // std::cout << max('1', '2') << '\n';
+    student student1;
+    student1.name = "Spongebob";
+    student1.gpa = 3.2;
+
+    std::cout << student1.name << '\n';
+    std::cout << student1.gpa << '\n';
+    std::cout << student1.enrolled << '\n';
+
+    student student2;
+    student2.name = "Patrick";
+    student2.gpa = 2.1;
+
+    std::cout << student2.name << '\n';
+    std::cout << student2.gpa << '\n';
+    std::cout << student2.enrolled << '\n';
+
+    student student3;
+    student3.name = "Squidward";
+    student3.gpa = 1.5;
+    student3.enrolled = false;
+
+    std::cout << student3.name << '\n';
+    std::cout << student3.gpa << '\n';
+    std::cout << student3.enrolled << '\n';
 
     return 0;
 }
