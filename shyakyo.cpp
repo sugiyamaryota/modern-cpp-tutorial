@@ -1,25 +1,29 @@
 #include <iostream>
-#include <numeric>
 
-auto gcd(unsigned int a, unsigned int b) -> unsigned int {
-    while (b != 0){
-        unsigned int r = a % b;
-        a = b;
-        b = r;
+auto is_prime(int const num) -> bool {
+    if(num <= 3){
+        return num >1;
     }
-    return a;
+    if(num % 2 == 0 || num % 3 == 0){
+        return false;
+    }
+    for(int i = 5; i * i <= num; i += 6){
+        if(num % i == 0 || num % (i + 2) == 0){
+            return false;
+        }
+    }
+    return true;
 }
 
-auto lcm(const unsigned int a, const unsigned int b) -> unsigned int {
-    unsigned int h = gcd(a,b);
-    return h != 0 ? (a*(b/h)) : 0;
-}
+auto main() -> int{
+    int limit = 0;
+    std::cout << "Upper limit: ";
+    std::cin >> limit;
 
-auto main(int /*argc*/, const char* /*argv*/[]) -> int{
-    std::cout << "Input numbers: ";
-    int a = 0;
-    int b = 0;
-    std::cin >> a >> b;
-    std::cout << "lcm(" << a << ", " << b << "):" << lcm(a,b) << std::endl;
-    std::cout << "std::lcm(" <<  a << ", " << b << "):" << std::lcm(a,b) << std::endl;
+    for(int i = limit; i > 1; i--){
+        if(is_prime(i)){
+            std::cout << "Largest prime:" << i << std::endl;
+            return 0;
+        }
+    }
 }
