@@ -15,15 +15,14 @@ auto is_prime(int const num) -> bool {
     return true;
 }
 
-auto main() -> int{
+auto main(int /*argc*/, const char* /*argv*/[]) -> int{
     int limit = 0;
     std::cout << "Upper limit: ";
     std::cin >> limit;
 
-    for(int i = limit; i > 1; i--){
-        if(is_prime(i)){
-            std::cout << "Largest prime:" << i << std::endl;
-            return 0;
+    for(int n = 2; n <= limit; n++){
+        if(is_prime(n) && is_prime(n + 6)){
+            std::cout << n << "," << n + 6 << std::endl;
         }
     }
 }
