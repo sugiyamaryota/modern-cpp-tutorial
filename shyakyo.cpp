@@ -1,28 +1,28 @@
+#include <cmath>
 #include <iostream>
 
-auto is_prime(int const num) -> bool {
-    if(num <= 3){
-        return num >1;
-    }
-    if(num % 2 == 0 || num % 3 == 0){
-        return false;
-    }
-    for(int i = 5; i * i <= num; i += 6){
-        if(num % i == 0 || num % (i + 2) == 0){
-            return false;
+auto sum_proper_divisors(int const number) -> int {
+    int result = 1;
+    int const root = static_cast<int>(std::sqrt(number));
+    for(int i = 2; i * i <= root; i ++){
+        if(number % i == 0){
+            result += (i == (number / i)) ? i : (i + number / i);
         }
     }
-    return true;
+    return result;
 }
 
-auto main(int /*argc*/, const char* /*argv*/[]) -> int{
+void print_abudant(int const limit) {
+    for(int number = 10; number <= limit; ++ number) {
+        if(auto sum = sum_proper_divisors(number); sum > number) {
+            std::cout << number << ", abudant=" << sum - number << std::endl;
+        }
+    }
+}
+
+auto main() -> int{
     int limit = 0;
     std::cout << "Upper limit: ";
     std::cin >> limit;
-
-    for(int n = 2; n <= limit; n++){
-        if(is_prime(n) && is_prime(n + 6)){
-            std::cout << n << "," << n + 6 << std::endl;
-        }
-    }
+    print_abudant(limit);
 }
