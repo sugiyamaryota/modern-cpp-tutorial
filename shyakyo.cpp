@@ -12,10 +12,14 @@ auto sum_proper_divisors(int const number) -> int {
     return result;
 }
 
-void print_abudant(int const limit) {
-    for(int number = 10; number <= limit; ++ number) {
-        if(auto sum = sum_proper_divisors(number); sum > number) {
-            std::cout << number << ", abudant=" << sum - number << std::endl;
+auto print_amicables(int const limit) -> void{
+    for(int number = 4; number <= limit; ++ number) {
+        if(auto sum1 = sum_proper_divisors(number);
+            number < sum1 && sum1 < limit) {
+            if(auto sum2 = sum_proper_divisors(sum1);
+                sum2 == number && number != sum1){
+                std::cout << number << "," << sum1 << std::endl;
+            }
         }
     }
 }
@@ -24,5 +28,5 @@ auto main() -> int{
     int limit = 0;
     std::cout << "Upper limit: ";
     std::cin >> limit;
-    print_abudant(limit);
+    print_amicables(limit);
 }
