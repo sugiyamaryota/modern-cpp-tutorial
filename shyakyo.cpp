@@ -1,32 +1,33 @@
+#include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <iterator>
+#include <vector>
 
-auto sum_proper_divisors(int const number) -> int {
-    int result = 1;
-    int const root = static_cast<int>(std::sqrt(number));
-    for(int i = 2; i * i <= root; i ++){
-        if(number % i == 0){
-            result += (i == (number / i)) ? i : (i + number / i);
+auto prim_factors(unsigned long long n) -> std::vector<unsigned long long> {
+    std::vector<unsigned long long> factors;
+    while(n % 2 == 0) {
+        factors.push_back(2);
+        n = n / 2;
+    }
+    int const root = static_cast<int>(std::sqrt(n));
+    for(unsigned long long i = 3; i <= root; i += 2) {
+        while(n % i == 0) {
+            factors.push_back(i);
+            n = n / i;
         }
     }
-    return result;
-}
-
-auto print_amicables(int const limit) -> void{
-    for(int number = 4; number <= limit; ++ number) {
-        if(auto sum1 = sum_proper_divisors(number);
-            number < sum1 && sum1 < limit) {
-            if(auto sum2 = sum_proper_divisors(sum1);
-                sum2 == number && number != sum1){
-                std::cout << number << "," << sum1 << std::endl;
-            }
-        }
+    if(n > 2) {
+        factors.push_back(n);
     }
+    return factors;
 }
 
-auto main() -> int{
-    int limit = 0;
-    std::cout << "Upper limit: ";
-    std::cin >> limit;
-    print_amicables(limit);
+auto main(int /*argc*/, const char* /*argv*/[]) -> int{
+    unsigned long long number = 0;
+    std::cout << "number: ";
+    std::cin >> number;
+    auto factors = prim_factors(number);
+    std::copy(std::cbegin(factors),std::cend(factors),
+        std::ostream_iterator<unsigned long long>(std::cout, " "));
 }
