@@ -1,33 +1,31 @@
-#include <algorithm>
-#include <cmath>
+#include <bitset>
 #include <iostream>
-#include <iterator>
-#include <vector>
+#include <string>
 
-auto prim_factors(unsigned long long n) -> std::vector<unsigned long long> {
-    std::vector<unsigned long long> factors;
-    while(n % 2 == 0) {
-        factors.push_back(2);
-        n = n / 2;
-    }
-    int const root = static_cast<int>(std::sqrt(n));
-    for(unsigned long long i = 3; i <= root; i += 2) {
-        while(n % i == 0) {
-            factors.push_back(i);
-            n = n / i;
+auto gray_encode(unsigned int const num) -> unsigned int {
+    return num ^ (num >> 1);
+}
+
+auto gray_decode(unsigned int gray) -> unsigned int {
+    for(unsigned int bit = 1U << 31; bit > 1; bit >>= 1){
+        if((gray & bit) != 0U){
+            gray ^= bit >> 1;
         }
     }
-    if(n > 2) {
-        factors.push_back(n);
-    }
-    return factors;
+    return gray;
+}
+
+auto to_binary(unsigned int const value, int const digits) -> std::string {
+    return std::bitset<32>(value).to_string().substr(32 - digits, digits);
 }
 
 auto main(int /*argc*/, const char* /*argv*/[]) -> int{
-    unsigned long long number = 0;
-    std::cout << "number: ";
-    std::cin >> number;
-    auto factors = prim_factors(number);
-    std::copy(std::cbegin(factors),std::cend(factors),
-        std::ostream_iterator<unsigned long long>(std::cout, " "));
+    std::cout << "Number\tBinary\tGray\tDecoded" <<std::endl;
+    std::cout << "-------\t-----\t----\t--------" <<std::endl;
+    for(unsigned int n = 0; n < 32; ++n){
+        auto encg = gray_encode(n);
+        auto decg = gray_decode(encg);
+        std::cout << n << "\t" << to_binary(n,5) << "\t" << to_binary(encg,5)
+            << "\t" << decg << std::endl;
+    }
 }
