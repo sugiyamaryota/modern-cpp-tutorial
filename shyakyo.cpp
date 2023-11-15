@@ -1,29 +1,35 @@
 #include <iostream>
-#include <string>
 #include <utility>
 #include <vector>
 
-auto to_roman(unsigned int value) -> std::string {
-    std::vector<std::pair<unsigned int, char const*>> const roman{
-        {1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},
-        {90,"XC"}, {50,"L"}, {40,"XL"}, {10,"X"}, {9,"IX"},
-        {5, "V"}, {4, "IV"}, {1, "I"}};
-    std::string result;
-    for(auto const& [num, str] : roman){
-        while(value >= num){
-            result += str;
-            value -= num;
+auto longest_collatz(unsigned long long const limit)
+    -> std::pair<unsigned long long, long> {
+    long length = 0;
+    unsigned long long number = 0;
+    std::vector<long> cache(limit + 1, 0);
+    for(unsigned long long i = 2; i <= limit; i++) {
+        auto n = i;
+        long steps = 0;
+        while(n != 1 && n >= i){
+            if((n % 2) == 0){
+                n /= 2;
+            } else {
+                n = n * 3 + 1;
+            }
+            steps++;
+        }
+        cache[i] = steps + cache[n];
+        if(cache[i] > length) {
+            length = cache[i];
+            number = i;
         }
     }
-    return result;
+    return std::make_pair(number, length);
 }
 
 auto main(int /*argc*/, const char* /*argv*/[]) -> int{
-    for(int i = 0; i < 100; ++i){
-        std::cout << i << "\t" << to_roman(i) << std::endl;
-    }
-    int number = 0;
-    std::cout << "number:";
-    std::cin >> number;
-    std::cout << to_roman(number) << std::endl;
+    const unsigned long long limit = 1000000;
+    auto [number, length] = longest_collatz(limit);
+    std::cout << "Longest collatz seqeunce under" << limit << " is " << length
+        << " for " << number << "." << std::endl;
 }
